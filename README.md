@@ -4,5 +4,4 @@ These are websites completly made by me from scratch, some of them are based upo
 
 ## This repository has been made to show my work.
 
-Have fun!
-I've had a lot of fun writing these websites.
+Have fun as if I had, when I was writing thes websites.
