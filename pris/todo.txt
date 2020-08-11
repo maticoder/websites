@@ -1,0 +1,6 @@
++ dodac liczenie na zmianie rozmiaru okna
++ strzalki w mobile wieksze i zeby sie odwracaly
+dodac zamiane simple na inne napisy
++ dodac gsap'a
+zmienic kolor checkbox'a
++ zmienic footer dla wersji mobilnej

@@ -1,0 +1,2 @@
+dodac gsap'a
+dodac learn more w cards

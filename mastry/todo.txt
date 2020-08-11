@@ -1,0 +1,2 @@
+dodac czerwony pasek w 2giej sekcji
+done - zwiekszyc margin i padding w box

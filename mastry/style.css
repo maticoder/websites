@@ -1,0 +1,2122 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+
+.container {
+    max-width: 1480px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+html {
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.img-container img {
+    width: 100%;
+    height: auto;
+}
+
+.img-container svg {
+    width: 100%;
+    height: auto;
+}
+
+.box {
+    margin-top: 4rem;
+    padding-top: 4rem;
+}
+
+.top {
+    flex: 1;
+}
+
+.bottom {
+    flex: 1;
+}
+
+.primary-text {
+    font-size: 4rem;
+    font-weight: 600;
+    /* line-height: 100%; */
+}
+
+.secondary-text {
+    font-size: 3.5rem;
+    font-weight: 600;
+    /* line-height: 100%; */
+}
+
+.paragraph-text {
+    font-size: 1.4rem;
+    font-weight: 200;
+    line-height: 160%;
+}
+
+.img-container img {
+    max-width: 50rem;
+}
+
+.button {
+    color: black;
+    font-weight: 200;
+    font-size: 1.4rem;
+    padding: 1.4rem 1.8rem;
+    position: relative;
+    display: inline-block;
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 6px;
+    border: 1px solid black;
+    /* padding: 1.4rem 1.6rem; */
+    width: 100%;
+    height: 100%;
+    transition: top 0.2s ease, left 0.2s ease;
+}
+
+.button:hover::before {
+    top: 6px;
+    left: -8px;
+}
+
+/* Navbar */
+
+#nav {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+#nav .nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    position: relative;
+}
+
+#nav .nav .logo {
+    margin-left: 3rem;
+}
+
+#nav .nav .logo a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nav .nav .logo svg:nth-child(2) {
+    display: none;
+}
+
+#nav .nav .navigation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background-color: white;
+    transform: translateY(-100%);
+    /* background-color: #ffc806; */
+    justify-content: center;
+    align-items: center;
+    transition: transform 1s ease;
+    z-index: 2;
+}
+
+#nav .nav .navigation.active {
+    transform: translateY(0);
+}
+
+#nav .nav .navigation .nav-links {
+    display: flex;
+    flex-direction: column;
+}
+
+#nav .nav .navigation .nav-links .nav-link {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+#nav .nav .navigation .nav-links .nav-link:first-child {
+    margin-left: 0;
+}
+
+#nav .nav .navigation .nav-links .nav-link:last-child {
+    margin-right: 0;
+    display: none;
+}
+
+#nav .nav .navigation .nav-links .nav-link a {
+    color: #333;
+    font-size: 2rem;
+    transition: color 0.2s ease;
+}
+
+#nav .nav .navigation .nav-links .nav-link a:hover {
+    color: #ffc806;
+}
+
+#nav .nav a.nav-button,
+#nav .nav .navigation .nav-links .nav-link a.nav-button {
+    color: white;
+    background-color: #ffc806;
+    border-radius: 50px;
+    padding: 1.2rem 2.4rem;
+}
+
+#nav .nav a.nav-button {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+}
+
+.hamburger {
+    display: inline-block;
+    overflow: visible;
+    margin: 0;
+    padding: 15px;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    transition-timing-function: linear;
+    transition-duration: 0.15s;
+    transition-property: opacity, filter;
+    text-transform: none;
+    /* position: absolute; */
+    top: 10px;
+    right: 2rem;
+    z-index: 11;
+}
+
+.hamburger-box {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+}
+
+.hamburger-inner,
+.hamburger-inner::after,
+.hamburger-inner::before {
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: black;
+}
+
+.hamburger-inner {
+    top: 50%;
+    display: block;
+    margin-top: -2px;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition-duration: 0.22s;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+    content: "";
+    display: block;
+}
+
+.hamburger-inner::before {
+    top: -10px;
+    transition: top 0.1s ease-in 0.25s, opacity 0.1s ease-in;
+}
+
+.hamburger-inner::after {
+    bottom: -10px;
+    transition: bottom 0.1s ease-in 0.25s,
+        transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger:hover {
+    opacity: 0.7;
+}
+
+.hamburger.is-active .hamburger-inner {
+    transform: rotate(225deg);
+    transition-delay: 0.12s;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.hamburger.is-active .hamburger-inner::after {
+    bottom: 0;
+    transition: bottom 0.1s ease-out,
+        transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+    transform: rotate(-90deg);
+}
+
+.hamburger.is-active .hamburger-inner::before {
+    top: 0;
+    opacity: 0;
+    transition: top 0.1s ease-out, opacity 0.1s ease-out 0.12s;
+}
+
+/* Hero */
+
+#hero .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+}
+
+#hero .hero .top {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#hero .hero .bottom {
+    /* display: flex; */
+    /* justify-content: flex-end; */
+}
+
+#hero .hero .top .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#hero .hero .top h1 {
+    max-width: 50rem;
+}
+
+#hero .hero .top h1 span {
+    display: inline-block;
+    position: relative;
+}
+
+#hero .hero .top h1 span::before {
+    display: block;
+    content: "";
+    width: 100%;
+    /* width: 100px; */
+    height: 6px;
+    background: #ffc806;
+    position: absolute;
+    bottom: 7px;
+    left: 0;
+    z-index: -1;
+}
+
+#hero .hero .top p {
+    max-width: 46rem;
+}
+
+#hero .hero .top a {
+    background-color: #ffc806;
+    /* border-radius: 50px; */
+    margin: 2rem 0;
+}
+
+#hero .hero .img-container img {
+    max-width: 50rem;
+}
+
+#hero .hero .top p:nth-child(2) {
+    margin: 2rem 0;
+}
+
+/* brands */
+
+#brands .brands {
+    text-align: center;
+}
+
+#brands .brands h4 {
+    /* font-size: 2.5rem; */
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 4rem;
+}
+
+#brands .brands .brands-content {
+    display: grid;
+    grid-template-columns: 250px;
+    justify-items: center;
+    grid-row-gap: 2rem;
+    justify-content: center;
+}
+
+#brands .brands .brands-content .brand {
+    /* margin: 1rem 0; */
+    /* cursor: pointer; */
+}
+
+#brands .brands .brands-content .brand a svg path {
+    transition: fill 0.2s ease;
+}
+
+#brands .brands .brands-content .brand.tesla a:hover svg path {
+    fill: #e82127;
+}
+
+#brands .brands .brands-content .brand.discord a:hover svg path {
+    fill: #7289da;
+}
+
+#brands .brands .brands-content .brand.callofduty a:hover svg path {
+    fill: #005288;
+}
+
+#brands .brands .brands-content .brand.facebook a:hover svg path {
+    fill: #1877f2;
+}
+
+#brands .brands .brands-content .brand.zara a:hover svg path {
+    fill: #000000;
+}
+
+#brands .brands .brands-content .brand.bershka a:hover svg path {
+    fill: #050606;
+}
+
+/* Services */
+
+#services .services {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#services .services .top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* text-align: center; */
+}
+
+#services .services .top h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#services .services .top h2 span {
+    display: inline-block;
+    position: relative;
+}
+
+#services .services .top h2 span::before {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 6px;
+    background: #ed3e2e;
+    position: absolute;
+    bottom: 6px;
+    left: 0;
+    z-index: -1;
+}
+
+#services .services .top p {
+    text-align: center;
+    margin-bottom: 2rem;
+    max-width: 44.5rem;
+}
+
+#services .services .top .services-content {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 4rem;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    /* width: 100%; */
+}
+
+#services .services .top .services-content .list {
+    flex-basis: 100%;
+    display: flex;
+}
+
+#services .services .top .services-content .list:nth-child(1) {
+    justify-content: flex-end;
+}
+
+#services .services .top .services-content ul {
+    list-style: none;
+    display: inline-block;
+}
+
+#services .services .top .services-content ul li {
+    font-size: 1.4rem;
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+#services .services .top a {
+    background-color: #ed3e2e;
+    margin: 2rem 0;
+    padding: 1.4rem 4rem;
+}
+
+.check-mark {
+    display: inline-block;
+    background: url(images/check-mark.svg);
+    background-size: 10px;
+    width: 10px;
+    height: 10px;
+    margin-right: 1rem;
+}
+
+/* Prove */
+
+#prove .prove {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#prove .prove .top {
+    text-align: center;
+}
+
+#prove .prove .top .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#prove .prove .top h2 {
+    margin-bottom: 2rem;
+    max-width: 45rem;
+}
+
+#prove .prove .top h2 span {
+    display: inline-block;
+    position: relative;
+}
+
+#prove .prove .top h2 span::before {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 6px;
+    background: #2e5bff;
+    position: absolute;
+    bottom: 6px;
+    left: 0;
+    z-index: -1;
+}
+
+#prove .prove .top p {
+    margin-bottom: 2.5rem;
+    max-width: 45rem;
+}
+
+#prove .prove .top a {
+    background-color: #2e5bff;
+    margin-bottom: 2rem;
+}
+
+/* Patrons */
+
+#patrons .patrons {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+}
+
+#patrons .patrons .patron {
+    /* height: 200px; */
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 6rem 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    margin: 2rem 0;
+}
+
+#patrons .patrons .patron:first-child {
+    margin-top: 0;
+}
+
+#patrons .patrons .patron:last-child {
+    margin-bottom: 0;
+}
+
+#patrons .patrons h4 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+#patrons .patrons p {
+    font-size: 1.5rem;
+    font-weight: 200;
+    max-width: 30rem;
+}
+
+#patrons .patrons .patron-brands {
+    display: flex;
+    margin-bottom: 4rem;
+}
+
+#patrons .patrons .patron-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#patrons .patrons .patron-brands img {
+    margin: 0 1rem;
+    height: 40px;
+}
+
+#patrons .patrons .patron-brands img:first-child {
+    margin-left: 0;
+}
+
+#patrons .patrons .patron-brands img:last-child {
+    margin-right: 0;
+}
+
+/* Process */
+
+#process .process {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#process .process h2 {
+    margin-bottom: 2rem;
+}
+
+#process .process p {
+    margin-bottom: 2.5rem;
+    max-width: 45rem;
+}
+
+#process .process a {
+    background-color: #7cc64a;
+}
+
+#process .process h2 span {
+    display: inline-block;
+    position: relative;
+}
+
+#process .process h2 span::before {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 6px;
+    background: #7cc64a;
+    position: absolute;
+    bottom: 6px;
+    left: 0;
+    z-index: -1;
+}
+
+/* Cards */
+
+#cards .cards {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+}
+
+#cards .cards .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 6rem 2rem;
+    border: 1px solid black;
+    border-radius: 3rem;
+    margin: 2rem 0;
+}
+
+#cards .cards .card:first-child {
+    margin-top: 0;
+}
+
+#cards .cards .card:last-child {
+    margin-bottom: 0;
+}
+
+#cards .cards .card h4 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+#cards .cards .card p {
+    font-size: 1.5rem;
+    font-weight: 200;
+    max-width: 30rem;
+}
+
+#cards .cards .card .icon {
+    display: inline-block;
+    margin-bottom: 4rem;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+#cards .cards .card.green {
+    border-color: rgb(124, 198, 74);
+}
+
+#cards .cards .card.green .icon {
+    background-color: rgba(124, 198, 74, 0.4);
+}
+
+#cards .cards .card.green svg path {
+    fill: #7cc64a;
+}
+
+#cards .cards .card.yellow {
+    border-color: rgb(255, 200, 6);
+}
+
+#cards .cards .card.yellow .icon {
+    background-color: rgba(255, 200, 6, 0.4);
+}
+
+#cards .cards .card.yellow svg path {
+    fill: #ffc806;
+}
+
+#cards .cards .card.red {
+    border-color: rgb(237, 62, 46);
+}
+
+#cards .cards .card.red .icon {
+    background-color: rgba(237, 62, 46, 0.4);
+}
+
+#cards .cards .card.red svg path {
+    fill: #ed3e2e;
+}
+
+#cards .cards .card.blue {
+    border-color: rgb(46, 91, 255);
+}
+
+#cards .cards .card.blue .icon {
+    background-color: rgba(46, 91, 255, 0.4);
+}
+
+#cards .cards .card.blue svg path {
+    fill: #2e5bff;
+}
+
+/* Message */
+
+#message .message {
+}
+
+#message .message .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1),
+        -4px -4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 4rem 2rem;
+    /* border: 1px solid rgba(0, 0, 0, 0.2); */
+    max-width: 70rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#message .message .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#message .message h2 {
+    font-size: 3.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+#message .message p {
+    font-size: 1.6rem;
+    font-weight: 200;
+    margin-bottom: 2rem;
+}
+
+#message .message .input {
+    position: relative;
+    width: 100%;
+    max-width: 40rem;
+}
+
+#message .message .input input {
+    border: 1px solid #ff8e25;
+    border-radius: 6rem;
+    padding: 1.5rem 1.5rem;
+    padding-right: 12rem;
+    font-size: 1.6rem;
+    font-weight: 200;
+    outline: none;
+    width: 100%;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(0, 0, 0, 0.15);
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: rgba(0, 0, 0, 0.15);
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: rgba(0, 0, 0, 0.15);
+}
+
+#message .message .input button {
+    background-color: #ff8e25;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.6rem;
+    color: white;
+    border: none;
+    padding: 1rem 3.4rem;
+    border-radius: 60px;
+    font-weight: 200;
+    cursor: pointer;
+}
+
+/* Footer */
+
+#footer {
+    background-color: #fbfbfb;
+}
+
+#footer .footer {
+    display: flex;
+    flex-direction: column;
+    padding: 6rem 0 2rem;
+}
+
+#footer .footer .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#footer .footer .left .logo a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer .footer .left .logo a svg:first-child {
+    margin-right: 1rem;
+}
+
+#footer .footer .left p {
+    font-size: 1.5rem;
+    font-weight: 200;
+    margin-top: 1rem;
+}
+
+#footer .footer .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#footer .footer .right ul {
+    display: inline-block;
+}
+
+#footer .footer .right .column {
+    text-align: center;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#footer .footer .right .column .column-content {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+#footer .footer .right .column p {
+    font-size: 1.5rem;
+    font-weight: 200;
+    margin: 1rem 0;
+    display: inline-block;
+}
+
+#footer .footer .right .column p a {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: black;
+}
+
+#footer .footer .right .column li {
+    margin: 1rem 0;
+}
+
+#footer .footer .right .column li a {
+    font-size: 1.5rem;
+    font-weight: 200;
+    color: black;
+}
+
+@media only screen and (min-width: 576px) {
+    .box {
+        margin-top: 5rem;
+        padding-top: 5rem;
+    }
+
+    .primary-text {
+        font-size: 5rem;
+    }
+
+    .secondary-text {
+        font-size: 4.5rem;
+    }
+
+    .paragraph-text {
+        font-size: 1.6rem;
+    }
+
+    .img-container img {
+        max-width: 60rem;
+    }
+
+    .button {
+        font-size: 1.6rem;
+        padding: 1.6rem 2rem;
+    }
+
+    #hero .hero {
+        margin-top: 3rem;
+        padding-top: 3rem;
+    }
+
+    #hero .hero .top h1 {
+        max-width: 60rem;
+    }
+
+    #hero .hero .top h1 span::before {
+        height: 7px;
+        bottom: 9px;
+    }
+
+    #hero .hero .top p {
+        max-width: 50rem;
+    }
+
+    #hero .hero .img-container img {
+        max-width: 60rem;
+    }
+
+    #brands .brands h4 {
+        font-size: 3.5rem;
+    }
+
+    #brands .brands .brands-content {
+        grid-template-columns: 250px 250px;
+        grid-row-gap: 4rem;
+    }
+
+    #services .services .top h2 {
+        max-width: 45rem;
+    }
+
+    #services .services .top h2 span::before {
+        height: 7px;
+        bottom: 8px;
+    }
+
+    #services .services .top p {
+        max-width: 56rem;
+    }
+
+    #services .services .top .services-content ul li {
+        font-size: 1.6rem;
+    }
+
+    #services .services .top .services-content {
+        grid-column-gap: 8rem;
+    }
+
+    #services .services .top a {
+        padding: 1.6rem 4rem;
+    }
+
+    #prove .prove .top h2 {
+        max-width: 50rem;
+    }
+
+    #prove .prove .top h2 span::before {
+        height: 7px;
+        bottom: 8px;
+    }
+
+    #prove .prove .top p {
+        max-width: 55rem;
+    }
+
+    #patrons .patrons {
+        max-width: 500px;
+    }
+
+    #patrons .patrons h4 {
+        font-size: 2.2rem;
+    }
+
+    #patrons .patrons p {
+        font-size: 1.6rem;
+        font-weight: 200;
+        max-width: 32rem;
+    }
+
+    #patrons .patrons .patron-brands img {
+        height: 50px;
+    }
+
+    #process .process p {
+        max-width: 50rem;
+    }
+
+    #process .process h2 span::before {
+        height: 7px;
+        bottom: 8px;
+    }
+
+    #cards .cards .card h4 {
+    }
+
+    #cards .cards .card p {
+        font-size: 1.6rem;
+    }
+
+    #message .message h2 {
+        font-size: 3.5rem;
+    }
+
+    #message .message p {
+        font-size: 1.8rem;
+    }
+
+    #message .message .input input {
+        font-size: 1.8rem;
+    }
+
+    #message .message .input button {
+        font-size: 1.8rem;
+        padding: 1.3rem 3.4rem;
+    }
+
+    #footer .footer {
+        padding: 6rem 0 4rem;
+    }
+
+    #footer .footer .left p {
+        font-size: 1.6rem;
+    }
+
+    #footer .footer .right .column p {
+        font-size: 1.6rem;
+    }
+
+    #footer .footer .right .column p a {
+        font-size: 1.6rem;
+    }
+
+    #footer .footer .right .column li a {
+        font-size: 1.6rem;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .primary-text {
+        font-size: 6rem;
+    }
+
+    .secondary-text {
+        font-size: 5rem;
+    }
+
+    .paragraph-text {
+        font-size: 2rem;
+    }
+
+    .img-container img {
+        max-width: 70rem;
+    }
+
+    .box {
+        margin-top: 5rem;
+        padding-top: 5rem;
+    }
+
+    .button {
+        font-size: 1.6rem;
+        padding: 1.8rem 2.4rem;
+    }
+
+    #hero .hero .top h1 {
+        max-width: 70rem;
+    }
+
+    #hero .hero .top h1 span::before {
+        height: 7px;
+        bottom: 11px;
+    }
+
+    #hero .hero .top p {
+        max-width: 60rem;
+    }
+
+    #hero .hero .img-container img {
+        max-width: 70rem;
+    }
+
+    #brands .brands h4 {
+        margin-bottom: 4rem;
+    }
+
+    #brands .brands .brands-content {
+        grid-template-columns: 300px 300px;
+        grid-row-gap: 5rem;
+    }
+
+    #services .services .top h2 {
+        max-width: 45rem;
+    }
+
+    #services .services .top h2 span::before {
+        height: 7px;
+        bottom: 10px;
+    }
+
+    #services .services .top p {
+        max-width: 70rem;
+    }
+
+    #services .services .top .services-content {
+        grid-column-gap: 10rem;
+    }
+
+    #services .services .top .services-content ul li {
+        font-size: 2rem;
+        margin: 2rem 0;
+    }
+
+    #services .services .top a {
+        padding: 1.8rem 4rem;
+    }
+
+    .check-mark {
+        background-size: 14px;
+        width: 14px;
+        height: 14px;
+        margin-right: 1.5rem;
+    }
+
+    #prove .prove .top h2 {
+        max-width: 60rem;
+    }
+
+    #prove .prove .top h2 span::before {
+        height: 7px;
+        bottom: 10px;
+    }
+
+    #prove .prove .top p {
+        max-width: 70rem;
+    }
+
+    #patrons .patrons h4 {
+        font-size: 2.4rem;
+    }
+
+    #patrons .patrons p {
+        font-size: 1.7rem;
+        font-weight: 200;
+        max-width: 33rem;
+    }
+
+    #patrons .patrons .patron-brands img {
+        height: 60px;
+    }
+
+    #process .process p {
+        max-width: 60rem;
+        margin-bottom: 3rem;
+    }
+
+    #process .process h2 span::before {
+        height: 7px;
+        bottom: 10px;
+    }
+
+    #cards .cards .card h4 {
+        font-size: 2.4rem;
+    }
+
+    #cards .cards .card p {
+        font-size: 1.7rem;
+    }
+
+    #footer .footer {
+        padding: 6rem 1rem 2rem;
+    }
+
+    #footer .footer .left p {
+        font-size: 1.7rem;
+    }
+
+    #footer .footer .right .column p {
+        font-size: 1.7rem;
+    }
+
+    #footer .footer .right .column p a {
+        font-size: 1.7rem;
+    }
+
+    #footer .footer .right .column li a {
+        font-size: 1.7rem;
+    }
+
+    #footer .footer .left {
+        margin-bottom: 4rem;
+    }
+
+    #footer .footer .right {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 2rem;
+        padding: 0 2rem;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .primary-text {
+        font-size: 4rem;
+    }
+
+    .secondary-text {
+        font-size: 3.5rem;
+    }
+
+    .paragraph-text {
+        font-size: 1.4rem;
+    }
+
+    .img-container img {
+        max-width: 50rem;
+    }
+
+    .button {
+        font-size: 1.4rem;
+        padding: 1.4rem 1.8rem;
+    }
+
+    .box {
+        margin-top: 5rem;
+        padding-top: 5rem;
+    }
+
+    #nav .nav {
+        padding: 2.5rem 2rem;
+    }
+
+    #nav .nav .logo {
+        margin-left: 0;
+    }
+
+    #nav .nav .logo svg:nth-child(1) {
+        margin-right: 1.5rem;
+    }
+
+    #nav .nav .hamburger {
+        display: none;
+    }
+
+    #nav .nav .navigation {
+        position: relative;
+        width: initial;
+        height: initial;
+        display: initial;
+        transform: translateY(0);
+    }
+
+    #nav .nav .navigation .nav-links {
+        flex-direction: row;
+    }
+
+    #nav .nav .navigation .nav-links .nav-link {
+        margin: 0 1.5rem;
+        text-align: left;
+    }
+
+    #nav .nav .navigation .nav-links .nav-link a {
+        font-size: 1.4rem;
+    }
+
+    #nav .nav .logo svg:nth-child(2) {
+        display: initial;
+    }
+
+    #nav .nav .navigation .nav-links .nav-link:last-child {
+        display: initial;
+    }
+
+    #nav .nav .nav-element {
+        display: none;
+    }
+
+    #hero .hero {
+        flex-direction: row;
+        margin-top: 2rem;
+        padding-top: 2rem;
+    }
+
+    #hero .hero .top {
+        text-align: left;
+        /* align-items: flex-start; */
+    }
+
+    #hero .hero .bottom {
+    }
+
+    #hero .hero .top .content {
+        align-items: flex-start;
+    }
+
+    #hero .hero .top h1 {
+        max-width: 50rem;
+    }
+
+    #hero .hero .top h1 span::before {
+        height: 6px;
+        bottom: 7px;
+    }
+
+    #hero .hero .top p {
+        max-width: 50rem;
+    }
+
+    #hero .hero .top a {
+    }
+
+    #hero .hero .img-container {
+        padding-left: 1rem;
+    }
+
+    #hero .hero .img-container img {
+        max-width: 50rem;
+    }
+
+    #brands .brands h4 {
+        font-size: 2.5rem;
+        margin-bottom: 4rem;
+    }
+
+    #brands .brands .brands-content {
+        grid-template-columns: 300px 300px 300px;
+        grid-row-gap: 4rem;
+    }
+
+    #brands .brands .brands-content svg {
+        height: 25px;
+    }
+
+    #services .services {
+        flex-direction: row;
+    }
+
+    #services .services .top {
+        align-items: flex-start;
+    }
+
+    #services .services .top h2 {
+        text-align: left;
+        max-width: 32rem;
+    }
+
+    #services .services .top h2 span::before {
+        height: 6px;
+        bottom: 6px;
+    }
+
+    #services .services .top p {
+        text-align: left;
+        max-width: 48rem;
+    }
+
+    #services .services .top .services-content {
+        grid-column-gap: 4rem;
+    }
+
+    #services .services .top .services-content .list {
+        display: initial;
+    }
+
+    #services .services .top .services-content ul li {
+        font-size: 1.4rem;
+        margin: 0.5rem 0;
+    }
+
+    #services .services .top a {
+        padding: 1.4rem 3.5rem;
+    }
+
+    .check-mark {
+        background-size: 10px;
+        width: 10px;
+        height: 10px;
+        margin-right: 1rem;
+    }
+
+    #prove .prove {
+        flex-direction: row-reverse;
+    }
+
+    #prove .prove .top {
+        text-align: left;
+    }
+
+    #prove .prove .top .content {
+        align-items: flex-start;
+        padding-left: 1rem;
+    }
+
+    #prove .prove .img-container {
+        padding-right: 1rem;
+    }
+
+    #prove .prove .top h2 {
+        max-width: 40rem;
+    }
+
+    #prove .prove .top h2 span::before {
+        height: 6px;
+        bottom: 6px;
+    }
+
+    #prove .prove .top p {
+        max-width: 48rem;
+    }
+
+    #patrons .patrons {
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 1400px;
+    }
+
+    #patrons .patrons .patron {
+        margin: 0 1rem;
+        flex: 1;
+        flex-basis: 100%;
+        max-width: 420px;
+        text-align: center;
+    }
+
+    #patrons .patrons h4 {
+        font-size: 2rem;
+    }
+
+    #patrons .patrons p {
+        font-size: 1.5rem;
+        max-width: 30rem;
+    }
+
+    #patrons .patrons .patron-brands img {
+        height: 37px;
+    }
+
+    #process .process p {
+        max-width: 70rem;
+        margin-bottom: 2.5rem;
+    }
+
+    #process .process h2 span::before {
+        height: 6px;
+        bottom: 6px;
+    }
+
+    #cards .cards {
+        flex-direction: row;
+        max-width: 800px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    #cards .cards .card {
+        margin: 1rem 1rem;
+        flex: 40%;
+        max-width: 36rem;
+    }
+
+    #cards .cards .card:first-child {
+        margin-top: 1rem;
+    }
+
+    #cards .cards .card:last-child {
+        margin-bottom: 1rem;
+    }
+
+    #cards .cards .card h4 {
+        font-size: 2.2rem;
+    }
+
+    #cards .cards .card p {
+        font-size: 1.6rem;
+    }
+
+    #message .message .content {
+        max-width: 90rem;
+    }
+
+    #message .message h2 {
+        font-size: 3.5rem;
+    }
+
+    #message .message p {
+        font-size: 1.8rem;
+    }
+
+    #message .message .input input {
+        font-size: 1.8rem;
+        padding-right: 15.5rem;
+    }
+
+    #message .message .input button {
+        font-size: 1.8rem;
+        padding: 1.3rem 5rem;
+    }
+
+    #footer .footer {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10rem 2rem 6rem;
+        /* padding-bottom: 2rem; */
+    }
+
+    #footer .footer .left {
+        align-items: flex-start;
+        margin: 0;
+        flex: 30%;
+        padding-left: 2rem;
+    }
+
+    #footer .footer .right {
+        padding: 0;
+        margin: 0;
+        flex: 70%;
+    }
+
+    #footer .footer .right .column {
+        margin: 0 1rem;
+        text-align: left;
+        flex: 1;
+    }
+
+    #footer .footer .right .column p {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    #footer .footer .right .column:first-child p {
+        margin-bottom: 1rem;
+    }
+
+    #footer .footer .left p {
+        font-size: 1.6rem;
+    }
+
+    #footer .footer .right .column p {
+        font-size: 1.6rem;
+    }
+
+    #footer .footer .right .column p a {
+        font-size: 1.6rem;
+    }
+
+    #footer .footer .right .column li a {
+        font-size: 1.6rem;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .box {
+        margin-top: 7rem;
+        padding-top: 7rem;
+    }
+
+    .primary-text {
+        font-size: 4.5rem;
+    }
+
+    .secondary-text {
+        font-size: 4rem;
+    }
+
+    .paragraph-text {
+        font-size: 1.6rem;
+    }
+
+    .img-container img {
+        max-width: 55rem;
+    }
+
+    .button {
+        font-size: 1.5rem;
+        padding: 1.4rem 1.8rem;
+    }
+
+    #nav .nav .navigation .nav-links .nav-link {
+        margin: 0 2rem;
+    }
+
+    #hero .hero {
+        margin-top: 3rem;
+        padding-top: 3rem;
+    }
+
+    #hero .hero .top h1 {
+        max-width: 58rem;
+    }
+
+    #hero .hero .top h1 span::before {
+        height: 6px;
+        bottom: 8px;
+    }
+
+    #hero .hero .top p {
+        max-width: 55rem;
+    }
+
+    #hero .hero .img-container img {
+        max-width: 55rem;
+    }
+
+    #brands .brands h4 {
+        font-size: 3rem;
+        margin-bottom: 4rem;
+    }
+
+    #brands .brands .brands-content svg {
+        height: 30px;
+    }
+
+    #services .services .top h2 {
+        max-width: 35rem;
+    }
+
+    #services .services .top h2 span::before {
+        height: 6px;
+        bottom: 7px;
+    }
+
+    #services .services .top p {
+        max-width: 52rem;
+    }
+
+    #services .services .top .services-content {
+        grid-column-gap: 4rem;
+    }
+
+    #services .services .top .services-content ul li {
+        font-size: 1.6rem;
+    }
+
+    #services .services .top a {
+        padding: 1.4rem 3.5rem;
+    }
+
+    #prove .prove .top h2 {
+        max-width: 50rem;
+    }
+
+    #prove .prove .top h2 span::before {
+        height: 6px;
+        bottom: 7px;
+    }
+
+    #prove .prove .top p {
+        max-width: 52rem;
+    }
+
+    #patrons .patrons .patron-brands img {
+        height: 40px;
+    }
+
+    #process .process p {
+        max-width: 80rem;
+        margin-bottom: 3rem;
+    }
+
+    #process .process h2 span::before {
+        height: 6px;
+        bottom: 7px;
+    }
+
+    #cards .cards .card h4 {
+        font-size: 2.4rem;
+    }
+
+    #cards .cards .card p {
+        font-size: 1.7rem;
+    }
+
+    #footer .footer {
+        padding: 12rem 2rem 8rem;
+    }
+
+    #footer .footer .left {
+        padding-left: 5rem;
+    }
+
+    #footer .footer .left .logo {
+        /* margin-bottom: 1rem; */
+    }
+
+    #footer .footer .right .column:first-child p {
+        margin-bottom: 2rem;
+    }
+
+    #footer .footer .left p {
+        font-size: 1.7rem;
+    }
+
+    #footer .footer .right .column p {
+        font-size: 1.7rem;
+    }
+
+    #footer .footer .right .column p a {
+        font-size: 1.7rem;
+    }
+
+    #footer .footer .right .column li {
+        margin: 2rem 0;
+    }
+
+    #footer .footer .right .column li a {
+        font-size: 1.7rem;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .primary-text {
+        font-size: 5rem;
+    }
+
+    .secondary-text {
+        font-size: 4.5rem;
+    }
+
+    .paragraph-text {
+        font-size: 1.8rem;
+    }
+
+    .img-container img {
+        max-width: 70rem;
+    }
+
+    .button {
+        font-size: 1.5rem;
+        padding: 1.6rem 2.4rem;
+    }
+
+    .box {
+        margin-top: 7rem;
+        padding-top: 7rem;
+    }
+
+    #hero .hero .top h1 {
+        max-width: 64rem;
+    }
+
+    #hero .hero .top h1 span::before {
+        height: 6px;
+        bottom: 10px;
+    }
+
+    #hero .hero .top p {
+        max-width: 60rem;
+    }
+
+    #hero .hero .top a {
+    }
+
+    #hero .hero .img-container img {
+        max-width: 70rem;
+    }
+
+    #brands .brands .brands-content {
+        display: flex;
+        justify-content: space-between;
+        max-width: 120rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #services .services .top h2 {
+        max-width: 40rem;
+    }
+
+    #services .services .top h2 span::before {
+        height: 6px;
+        bottom: 8px;
+    }
+
+    #services .services .top p {
+        max-width: 62rem;
+    }
+
+    #services .services .top .services-content {
+        grid-column-gap: 6rem;
+    }
+
+    #services .services .top .services-content ul li {
+        font-size: 1.8rem;
+        margin: 1rem 0;
+    }
+
+    #services .services .top a {
+        padding: 1.6rem 4rem;
+    }
+
+    .check-mark {
+        background-size: 14px;
+        width: 14px;
+        height: 14px;
+        margin-right: 1.5rem;
+    }
+
+    #prove .prove .top .content {
+        padding-left: 4rem;
+    }
+
+    #prove .prove .top h2 {
+        max-width: 50rem;
+    }
+
+    #prove .prove .top h2 span::before {
+        height: 6px;
+        bottom: 8px;
+    }
+
+    #prove .prove .top p {
+        max-width: 62rem;
+    }
+
+    #patrons .patrons h4 {
+        font-size: 2.2rem;
+    }
+
+    #patrons .patrons p {
+        font-size: 1.6rem;
+        max-width: 34rem;
+    }
+
+    #patrons .patrons .patron-brands img {
+        height: 45px;
+    }
+
+    #process .process p {
+        max-width: 90rem;
+        margin-bottom: 3rem;
+    }
+
+    #process .process h2 span::before {
+        height: 6px;
+        bottom: 8px;
+    }
+
+    #cards .cards {
+        max-width: 800px;
+    }
+
+    #footer .footer {
+        padding: 14rem 4rem 10rem;
+    }
+
+    /* #footer .footer .left p {
+        font-size: 1.8rem;
+    }
+
+    #footer .footer .right .column p {
+        font-size: 1.8rem;
+    }
+
+    #footer .footer .right .column p a {
+        font-size: 1.8rem;
+    }
+
+    #footer .footer .right .column li a {
+        font-size: 1.8rem;
+    } */
+}
+
+@media only screen and (min-width: 1400px) {
+    .box {
+        margin-top: 7rem;
+        padding-top: 7rem;
+    }
+
+    .primary-text {
+        font-size: 5.5rem;
+    }
+
+    .secondary-text {
+        font-size: 5rem;
+    }
+
+    .paragraph-text {
+        font-size: 1.8rem;
+        line-height: 180%;
+    }
+
+    .button {
+        font-size: 1.6rem;
+        padding: 1.6rem 2.8rem;
+    }
+
+    #hero .hero {
+        margin-top: 4rem;
+        padding-top: 4rem;
+    }
+
+    #hero .hero .top h1 {
+    }
+
+    #hero .hero .top h1 span::before {
+        height: 7px;
+        bottom: 11px;
+    }
+
+    #hero .hero .top p {
+    }
+
+    #hero .hero .top p:nth-child(2) {
+        margin: 3rem 0;
+    }
+
+    #hero .hero .top a {
+        margin: 3rem 0;
+    }
+
+    #brands .brands {
+        /* margin-top: 5rem;
+        padding-top: 5rem; */
+    }
+
+    #services .services .top h2 {
+        max-width: 45rem;
+    }
+
+    #services .services .top h2 span::before {
+        height: 7px;
+        bottom: 10px;
+    }
+
+    #services .services .top p {
+        max-width: 65rem;
+    }
+
+    #services .services .top .services-content {
+        grid-column-gap: 8rem;
+    }
+
+    #services .services .top a {
+        margin: 3rem 0;
+        padding: 1.6rem 4rem;
+    }
+
+    #prove .prove .top h2 {
+        max-width: 55rem;
+    }
+
+    #prove .prove .top h2 span::before {
+        height: 7px;
+        bottom: 10px;
+    }
+
+    #prove .prove .top p {
+        max-width: 65rem;
+    }
+
+    #process .process h2 span::before {
+        height: 7px;
+        bottom: 10px;
+    }
+
+    #cards .cards {
+        max-width: 1400px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    #message .message .content {
+        flex-direction: row;
+        max-width: 140rem;
+        padding: 6rem 8rem;
+    }
+
+    #message .message .content .text {
+        flex: 60%;
+        align-items: flex-start;
+    }
+
+    #message .message .content .input {
+        flex: 40%;
+        max-width: 45rem;
+    }
+
+    #message .message .content .input input {
+        padding: 2rem 2rem;
+        padding-right: 16rem;
+    }
+
+    #message .message .input button {
+        right: 8px;
+    }
+
+    #message .message h2 {
+        font-size: 4rem;
+    }
+
+    #message .message p {
+        font-size: 1.8rem;
+    }
+
+    #footer .footer {
+        padding: 14rem 0rem 10rem;
+    }
+}
+
+@media only screen and (min-width: 1500px) {
+    .box {
+        margin-top: 10rem;
+        padding-top: 10rem;
+    }
+
+    .primary-text {
+        font-size: 6rem;
+    }
+
+    .secondary-text {
+        font-size: 5.5rem;
+    }
+
+    .paragraph-text {
+    }
+
+    #hero .hero {
+        margin-top: 6rem;
+        padding-top: 6rem;
+    }
+
+    #hero .hero .top h1 {
+        max-width: 72rem;
+    }
+
+    #hero .hero .top h1 span::before {
+        height: 8px;
+        bottom: 11px;
+    }
+
+    #brands .brands {
+        /* margin-top: 6rem;
+        padding-top: 6rem; */
+    }
+
+    #services .services .top h2 {
+        max-width: 50rem;
+    }
+
+    #services .services .top h2 span::before {
+        height: 8px;
+        bottom: 10px;
+    }
+
+    #services .services .top p {
+        max-width: 65rem;
+    }
+
+    #services .services .top .services-content {
+        grid-column-gap: 10rem;
+    }
+
+    #prove .prove .top h2 {
+        max-width: 60rem;
+    }
+
+    #prove .prove .top h2 span::before {
+        height: 8px;
+        bottom: 10px;
+    }
+
+    #prove .prove .top p {
+        max-width: 70rem;
+    }
+
+    #patrons .patrons h4 {
+        font-size: 2.4rem;
+    }
+
+    #patrons .patrons p {
+        font-size: 1.7rem;
+        max-width: 34rem;
+    }
+
+    #patrons .patrons .patron-brands img {
+        height: 50px;
+    }
+
+    #process .process h2 span::before {
+        height: 8px;
+        bottom: 10px;
+    }
+}
